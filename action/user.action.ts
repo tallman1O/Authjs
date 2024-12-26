@@ -11,11 +11,7 @@ const login = async (formdata: FormData) => {
   const password = formdata.get("password") as string;
 
   try {
-    if (!email || !password) {
-      throw new Error("Please fill all fields");
-    }
-
-    await signIn("credentials", {
+    await signIn("Credentials", {
       redirect: true,
       callbackUrl: "/",
       email,
@@ -24,6 +20,7 @@ const login = async (formdata: FormData) => {
   } catch (error) {
     console.log(error);
   }
+  redirect("/");
 };
 
 const register = async (formdata: FormData) => {
